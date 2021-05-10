@@ -1,21 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShortUrlService {
-  url = 'https://api-ssl.bitly.com/v4/shorten';
+  url = environment.bitly_url;
 
 
   constructor(private http: HttpClient) {}
 
   getUrlShort(nameUrl: string): Observable<any> {
-    // const tokenHeader = new HttpHeaders({
-    //   Authorization: 'Bearer ' + this.token,
-    // });
-
     const body = {
       long_url: nameUrl,
     };

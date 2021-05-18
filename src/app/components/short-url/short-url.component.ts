@@ -46,7 +46,7 @@ export class ShortUrlComponent implements OnInit {
     this._shortUrlService.getUrlShort(this.urlName).subscribe(data => {
       this.loading = false;
       this.urlProcessed = true;
-      this.urlShort = data.link;
+      this.urlShort = data.short_url;
     }, error => {
       console.log(error);
       

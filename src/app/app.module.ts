@@ -15,20 +15,16 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     AppComponent,
     NavbarComponent,
     ShortUrlComponent,
-    SpinnerComponent
+    SpinnerComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ShortInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

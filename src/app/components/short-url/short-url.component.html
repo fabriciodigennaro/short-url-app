@@ -1,9 +1,17 @@
-<div *ngIf="showError" class="alert alert-dismissible alert-warning text-center">
-  <strong>{{ textError | uppercase }}</strong>
+<!-- error message -->
+<div class="errors-msg">
+  <div
+    *ngIf="showError"
+    class="alert alert-dismissible alert-warning text-center"
+  >
+    <strong>{{ textError | uppercase }}</strong>
+  </div>
 </div>
 
-<div class="container mt-3">
-  <h1 class="display-5 text-center">INGRESE URL A ACORTAR</h1>
+<div class="container mt-5">
+  <!-- titulo -->
+  <h1 class="display-5 text-center">INGRESE URL</h1>
+  <!-- url a acortar -->
   <div class="row mt-5 mb-4">
     <div class="col-lg-8">
       <input
@@ -14,9 +22,12 @@
       />
     </div>
     <div class="col-lg-4">
-      <button (click)="processUrl()" class="btn btn-primary btn-block btn-lg">ACEPTAR</button>
+      <button (click)="processUrl()" class="btn btn-primary btn-block btn-lg">
+        ACORTAR
+      </button>
     </div>
   </div>
+  <!-- url acortada -->
   <div *ngIf="urlProcessed" class="row">
     <div class="col-lg-8">
       <input
@@ -26,6 +37,18 @@
         placeholder="Url procesada..."
       />
     </div>
+    <button (click)="copyContent()" class="btn btn-primary btn-copy">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+        <path
+          d="M384 96L384 0h-112c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48H464c26.51 0 48-21.49 48-48V128h-95.1C398.4 128 384 113.6 384 96zM416 0v96h96L416 0zM192 352V128h-144c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h192c26.51 0 48-21.49 48-48L288 416h-32C220.7 416 192 387.3 192 352z"
+        />
+      </svg>
+    </button>
+    <i *ngIf="isCopyToClipboard" class="copy-confirmation"
+      >Copiado al portapapeles!</i
+    >
   </div>
+  <!-- spinner -->
   <app-spinner *ngIf="loading"></app-spinner>
 </div>
